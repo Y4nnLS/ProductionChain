@@ -1,3 +1,5 @@
+package cadeia.util;
+
 import java.util.concurrent.locks.*;
 
 public class EsteiraCircular<T> {
@@ -35,8 +37,8 @@ public class EsteiraCircular<T> {
     }
 
     // Versão alternativa que não retorna a posição (por compatibilidade, opcional)
-    public void adicionar(T item) throws InterruptedException {
-        inserir(item);
+    public int adicionar(T item) throws InterruptedException {
+        return inserir(item);
     }
 
     public T remover() throws InterruptedException {

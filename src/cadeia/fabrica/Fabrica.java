@@ -1,4 +1,4 @@
-package cadeia.produtor;
+package cadeia.fabrica;
 
 import cadeia.modelo.*;
 import cadeia.util.*;
@@ -49,7 +49,14 @@ public class Fabrica {
 
         EstacaoProdutora estacao = estacoes.get(idEstacao);
         Veiculo veiculo = new Veiculo(idVeiculo, cor, tipo, idEstacao, idFuncionario, -1);
-        int posicao = estacao.getEsteira().inserir(veiculo);
+        int posicao;
+        try {
+            posicao = estacao.getEsteira().inserir(veiculo);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.out.println("Fábrica foi interrompida durante o envio do veículo à esteira.");
+            return null;
+        }
         veiculo.setPosicaoEsteira(posicao);
 
         System.out.println(veiculo.resumoProducao());

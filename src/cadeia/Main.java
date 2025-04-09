@@ -1,4 +1,8 @@
+package cadeia;
+
 import java.util.Random;
+
+import cadeia.util.EsteiraCircular;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,8 +1,7 @@
-package cadeia.producao;
+package cadeia.fabrica;
 
-import cadeia.fabrica.Fabrica;
 import cadeia.modelo.Veiculo;
-import cadeia.sistema.EsteiraCircular;
+import cadeia.util.EsteiraCircular;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +12,14 @@ public class EstacaoProdutora {
 
     private final int idEstacao;
     private final Fabrica fabrica;
-    private final EsteiraCircular esteira;
+    private final EsteiraCircular<Veiculo> esteira;
     private final List<Funcionario> funcionarios = new ArrayList<>();
     private final Lock[] ferramentas = new ReentrantLock[5];
 
     public EstacaoProdutora(int idEstacao, Fabrica fabrica) {
         this.idEstacao = idEstacao;
         this.fabrica = fabrica;
-        this.esteira = new EsteiraCircular(40);
+        this.esteira = new EsteiraCircular<>(40);
 
         inicializarFerramentas();
         inicializarFuncionarios();
@@ -62,7 +61,7 @@ public class EstacaoProdutora {
         return v;
     }
 
-    public EsteiraCircular getEsteira() {
+    public EsteiraCircular<Veiculo> getEsteira() {
         return esteira;
     }
 
