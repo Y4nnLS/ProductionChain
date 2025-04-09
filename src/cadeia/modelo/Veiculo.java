@@ -42,6 +42,10 @@ public class Veiculo {
         return idFuncionario;
     }
 
+    public void setPosicaoEsteira(int posicaoEsteira) {
+    this.posicaoEsteira = posicaoEsteira;
+}
+
     public int getPosicaoEsteira() {
         return posicaoEsteira;
     }
