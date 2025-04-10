@@ -53,5 +53,7 @@ public class Fabrica {
         return veiculo;
     }
 
-
+    public List<EstacaoProdutora> getEstacoes() {
+        return estacoes;
+    }
 }

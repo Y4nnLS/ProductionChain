@@ -27,7 +27,7 @@ fi
 echo "🚀 Executando..."
 
 # Altere 'cadeia.Main' se o seu Main.java não estiver em um package
-java -cp $OUT_DIR cadeia.Main
+java -cp $OUT_DIR cadeia.teste
 
 # Opcional: limpa o arquivo temporário
 rm sources.txt
