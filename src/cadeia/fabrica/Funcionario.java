@@ -23,6 +23,7 @@ public class Funcionario extends Thread {
                 ferramentaEsquerda.lock();
                 ferramentaDireita.lock();
 
+                Thread.sleep((long) (5000 + Math.random() * 10000)); // Simula tempo de produção
                 try {
                     estacao.produzirVeiculo(this);
                 } catch(InterruptedException e){
@@ -34,8 +35,6 @@ public class Funcionario extends Thread {
                     ferramentaDireita.unlock();
                     ferramentaEsquerda.unlock();
                 }
-
-                Thread.sleep((long) (500 + Math.random() * 500)); // Simula tempo de produção
             }
         } catch (InterruptedException e) {
             System.out.println("Funcionário " + id + " interrompido.");

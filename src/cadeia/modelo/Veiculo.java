@@ -13,13 +13,12 @@ public class Veiculo {
         private int idLoja = -1;
         private int posicaoEsteiraLoja = -1;
     
-        public Veiculo(int id, CorVeiculo cor, TipoVeiculo tipo, int idEstacao, int idFuncionario, int posicaoEsteira) {
+        public Veiculo(int id, CorVeiculo cor, TipoVeiculo tipo, int idEstacao, int idFuncionario) {
             this.id = id;
             this.cor = cor;
             this.tipo = tipo;
             this.idEstacao = idEstacao;
             this.idFuncionario = idFuncionario;
-            this.posicaoEsteira = posicaoEsteira;
         }
     
         public int getId() {
@@ -65,8 +64,8 @@ public class Veiculo {
 
     public String resumoProducao() {
         return String.format(
-                "[ID=%d] %s %s | Estação: %d | Funcionário: %d | Posição Esteira: %d",
-                id, tipo.getDescricao(), cor.getDescricao(), idEstacao, idFuncionario, posicaoEsteira);
+                "[ID=%d] %s %s | Estação: %d | Funcionário: %d",
+                id, tipo.getDescricao(), cor.getDescricao(), idEstacao, idFuncionario);
     }
 
     public String resumoVenda() {

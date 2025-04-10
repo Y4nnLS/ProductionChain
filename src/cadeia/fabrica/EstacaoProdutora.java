@@ -51,14 +51,19 @@ public class EstacaoProdutora {
         }
     }
 
-    public Veiculo produzirVeiculo(Funcionario funcionario) throws InterruptedException {
+    public void produzirVeiculo(Funcionario funcionario) throws InterruptedException {
         Veiculo v = fabrica.produzirVeiculo(idEstacao, funcionario.getIdFuncionario());
 
-        int posicao = esteira.adicionar(v);
+        int posicao;
+        try {
+            posicao = esteira.inserir(v);
+            v.setPosicaoEsteira(posicao);
+            System.out.printf("Veículo %d produzido por funcionário %d na estação %d (posição %d da esteira)%n", v.getId(), funcionario.getIdFuncionario(), idEstacao, posicao);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.out.println("Fábrica foi interrompida durante o envio do veículo à esteira.");
+        }
 
-        System.out.printf("Veículo %d produzido por funcionário %d na estação %d (posição %d da esteira)%n", v.getId(), funcionario.getIdFuncionario(), idEstacao, posicao);
-
-        return v;
     }
 
     public EsteiraCircular<Veiculo> getEsteira() {

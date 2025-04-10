@@ -23,15 +23,13 @@ public class App {
             TipoVeiculo tipo = TipoVeiculo.alternar(random.nextInt(2));
             int estacao = random.nextInt(4) + 1;
             int funcionario = 101 + random.nextInt(20);
-            int posEsteiraFabrica = random.nextInt(40);
 
             Veiculo v = new Veiculo(
                     id,
                     cor,
                     tipo,
                     estacao,
-                    funcionario,
-                    posEsteiraFabrica);
+                    funcionario);
 
             LogFabrica.registrarProducao(v);
 
@@ -44,7 +42,7 @@ public class App {
             estoque--;
 
             try {
-                Thread.sleep(10); // Simula tempo de produção
+                Thread.sleep(10000); // Simula tempo de produção
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
