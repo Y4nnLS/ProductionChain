@@ -8,39 +8,42 @@ public class Veiculo {
     private final TipoVeiculo tipo;
     private final int idEstacao;
     private final int idFuncionario;
-    private final int posicaoEsteira;
-
-    private int idLoja = -1;
-    private int posicaoEsteiraLoja = -1;
-
-    public Veiculo(int id, CorVeiculo cor, TipoVeiculo tipo, int idEstacao, int idFuncionario, int posicaoEsteira) {
-        this.id = id;
-        this.cor = cor;
-        this.tipo = tipo;
-        this.idEstacao = idEstacao;
-        this.idFuncionario = idFuncionario;
+    private int posicaoEsteira;
+    
+        private int idLoja = -1;
+        private int posicaoEsteiraLoja = -1;
+    
+        public Veiculo(int id, CorVeiculo cor, TipoVeiculo tipo, int idEstacao, int idFuncionario) {
+            this.id = id;
+            this.cor = cor;
+            this.tipo = tipo;
+            this.idEstacao = idEstacao;
+            this.idFuncionario = idFuncionario;
+        }
+    
+        public int getId() {
+            return id;
+        }
+    
+        public CorVeiculo getCor() {
+            return cor;
+        }
+    
+        public TipoVeiculo getTipo() {
+            return tipo;
+        }
+    
+        public int getIdEstacao() {
+            return idEstacao;
+        }
+    
+        public int getIdFuncionario() {
+            return idFuncionario;
+        }
+    
+        public void setPosicaoEsteira(int posicaoEsteira) {
         this.posicaoEsteira = posicaoEsteira;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public CorVeiculo getCor() {
-        return cor;
-    }
-
-    public TipoVeiculo getTipo() {
-        return tipo;
-    }
-
-    public int getIdEstacao() {
-        return idEstacao;
-    }
-
-    public int getIdFuncionario() {
-        return idFuncionario;
-    }
+}
 
     public int getPosicaoEsteira() {
         return posicaoEsteira;
@@ -61,8 +64,8 @@ public class Veiculo {
 
     public String resumoProducao() {
         return String.format(
-                "[ID=%d] %s %s | Estação: %d | Funcionário: %d | Posição Esteira: %d",
-                id, tipo.getDescricao(), cor.getDescricao(), idEstacao, idFuncionario, posicaoEsteira);
+                "[ID=%d] %s %s | Estação: %d | Funcionário: %d",
+                id, tipo.getDescricao(), cor.getDescricao(), idEstacao, idFuncionario);
     }
 
     public String resumoVenda() {
