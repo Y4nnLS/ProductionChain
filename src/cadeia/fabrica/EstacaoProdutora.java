@@ -58,7 +58,11 @@ public class EstacaoProdutora {
         try {
             posicao = esteira.inserir(v);
             v.setPosicaoEsteira(posicao);
-            System.out.printf("Veículo %d produzido por funcionário %d na estação %d (posição %d da esteira)%n", v.getId(), funcionario.getIdFuncionario(), idEstacao, posicao);
+
+            LogFabrica.registrarProducao(v);
+
+            System.out.printf("Veículo %d produzido por funcionário %d na estação %d (posição %d da esteira)%n",
+                    v.getId(), funcionario.getIdFuncionario(), idEstacao, posicao);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             System.out.println("Fábrica foi interrompida durante o envio do veículo à esteira.");

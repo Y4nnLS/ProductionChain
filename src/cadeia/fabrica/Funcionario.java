@@ -20,17 +20,21 @@ public class Funcionario extends Thread {
         try {
             while (true) {
                 // Tentar pegar ferramentas
-                ferramentaEsquerda.lock();
-                ferramentaDireita.lock();
+                if (id == 4) {
+                    ferramentaDireita.lock();
+                    ferramentaEsquerda.lock();
+                } else {
+                    ferramentaEsquerda.lock();
+                    ferramentaDireita.lock();
+                }
 
                 Thread.sleep((long) (5000 + Math.random() * 10000)); // Simula tempo de produção
                 try {
                     estacao.produzirVeiculo(this);
-                } catch(InterruptedException e){
+                } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     System.out.println("Funcionário " + id + " interrompido durante a produção.");
-                } 
-                finally {
+                } finally {
                     // Liberar ferramentas
                     ferramentaDireita.unlock();
                     ferramentaEsquerda.unlock();

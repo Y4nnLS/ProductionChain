@@ -1,6 +1,8 @@
 package cadeia.util;
 
-public enum CorVeiculo {
+import java.io.Serializable;
+
+public enum CorVeiculo implements Serializable {
     RED(0, "Vermelho"),
     GREEN(1, "Verde"),
     BLUE(2, "Azul");

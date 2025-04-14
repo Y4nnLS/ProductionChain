@@ -1,6 +1,8 @@
 package cadeia.modelo;
 
-public enum TipoVeiculo {
+import java.io.Serializable;
+
+public enum TipoVeiculo implements Serializable {
     SUV(0, "Utilitário Esportivo"),
     SEDAN(1, "Sedan Tradicional");
 
